@@ -1,0 +1,16 @@
+.header {
+  background-color: var(--secondary);
+  width: 100%;
+}
+
+.header-text {
+  font-size: 40px;
+  color: var(--accent);
+  padding: 0 30px;
+}
+
+@media screen and (min-width: 600px) {
+  .header-text {
+    font-size: 60px;
+  }
+}
