@@ -15,7 +15,7 @@ const Homepage = () => {
   const searchCocktails = async (ingredient: string) => {
     try {
       const response = await axios.get(
-        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${ingredient}`
+        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`
       );
       const { drinks } = response.data;
       if (!drinks) {
@@ -28,12 +28,23 @@ const Homepage = () => {
         return;
       }
 
-      const nonAlcoholicCocktails = drinks.filter(
+      const limitedDrinks = drinks.slice(0, 20);
+
+      const detailedCocktails = await Promise.all(
+        limitedDrinks.map(async (cocktail: { idDrink: any }) => {
+          const detailResponse = await axios.get(
+            `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktail.idDrink}`
+          );
+          return detailResponse.data.drinks[0];
+        })
+      );
+
+      const nonAlcoholicCocktails = detailedCocktails.filter(
         (cocktail: { strAlcoholic: string }) =>
           cocktail.strAlcoholic === "Non alcoholic"
       );
 
-      const alcoholicCocktails = drinks.filter(
+      const alcoholicCocktails = detailedCocktails.filter(
         (cocktail: { strAlcoholic: string }) =>
           cocktail.strAlcoholic !== "Non alcoholic"
       );
