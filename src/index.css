@@ -73,7 +73,7 @@ body {
 @keyframes fade-top {
   0% {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateY(-5px);
   }
 
   100% {
