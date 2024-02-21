@@ -63,7 +63,7 @@ const DetailsComponent = (): JSX.Element => {
               <div className="main-tag">
                 {cocktail.strAlcoholic === "Alcoholic"
                   ? "Alcoholic"
-                  : "Non-Alcoholic"}
+                  : "Non alcoholic"}
               </div>
             </div>
           </article>
@@ -73,12 +73,20 @@ const DetailsComponent = (): JSX.Element => {
               {Array.from({ length: 15 }, (_, i) => i + 1).map((index) => {
                 const ingredient = cocktail[`strIngredient${index}`];
                 const measure = cocktail[`strMeasure${index}`];
-                if (ingredient && measure) {
-                  return (
-                    <p className="info-text" key={index}>
-                      {measure} {ingredient}
-                    </p>
-                  );
+                if (ingredient) {
+                  if (measure) {
+                    return (
+                      <p className="info-text" key={index}>
+                        {measure} {ingredient}
+                      </p>
+                    );
+                  } else {
+                    return (
+                      <p className="info-text" key={index}>
+                        {ingredient}
+                      </p>
+                    );
+                  }
                 }
                 return null;
               })}

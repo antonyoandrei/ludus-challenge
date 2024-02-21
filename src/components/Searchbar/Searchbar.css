@@ -18,6 +18,7 @@
 .search-input::placeholder {
   transition: color 0.2s;
   color: var(--primary);
+  opacity: 0.6;
 }
 
 .search-input:focus {
