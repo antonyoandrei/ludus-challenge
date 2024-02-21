@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
 
-const Header = () => {
+/**
+ * Header component for the application.
+ * @returns {JSX.Element} JSX element representing the header.
+ */
+
+const Header = (): JSX.Element => {
   return (
     <header className="header">
       <Link to={"/"}>

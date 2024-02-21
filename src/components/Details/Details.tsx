@@ -3,7 +3,23 @@ import back from "../../assets/reply.svg";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const DetailsComponent = () => {
+/**
+ * Represents a cocktail object.
+ * @typedef {Object} Cocktail
+ * @property {string} strDrink - The name of the cocktail.
+ * @property {string} strDrinkThumb - The URL to the image of the cocktail.
+ * @property {string} strAlcoholic - Indicates whether the cocktail is alcoholic or non-alcoholic.
+ * @property {string} strInstructions - The instructions to prepare the cocktail.
+ * @property {string} strIngredient1-strIngredient15 - Ingredients of the cocktail.
+ * @property {string} strMeasure1-strMeasure15 - Measurement of each ingredient.
+ */
+
+/**
+ * Functional component to display details of a cocktail.
+ * @returns {JSX.Element} DetailsComponent
+ */
+
+const DetailsComponent = (): JSX.Element => {
   const { id } = useParams();
   const [cocktail, setCocktail] = useState<Cocktail | null>(null);
   const [animation, setAnimation] = useState("");

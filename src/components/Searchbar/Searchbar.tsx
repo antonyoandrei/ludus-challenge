@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import search from "../../assets/search.svg";
 import "./Searchbar.css";
 
+/**
+ * Searchbar component for searching ingredients.
+ * @param {Object} props - Component props.
+ * @param {function} props.onSearch - Function to call when search is initiated.
+ */
+
 const Searchbar = ({
   onSearch,
 }: {

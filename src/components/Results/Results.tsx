@@ -2,6 +2,14 @@ import { useEffect, useState } from "react";
 import "./Results.css";
 import { Link } from "react-router-dom";
 
+/**
+ * Results component displays a list of cocktails and applies animation when new cocktails are fetched.
+ * @param {Object[]} cocktails - An array of cocktail objects to display.
+ * @param {string} cocktails[].idDrink - The unique identifier of the cocktail.
+ * @param {string} cocktails[].strDrink - The name of the cocktail.
+ * @param {string} cocktails[].strDrinkThumb - The URL of the cocktail image.
+ */
+
 const Results = ({ cocktails }: Props) => {
   const [animation, setAnimation] = useState("");
 

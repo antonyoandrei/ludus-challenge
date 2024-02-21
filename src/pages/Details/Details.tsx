@@ -1,6 +1,11 @@
 import DetailsComponent from "../../components/Details/Details";
 
-const Details = () => {
+/**
+ * Renders the Details component.
+ * @returns {JSX.Element} The Details component JSX.
+ */
+
+const Details = (): JSX.Element => {
   return (
     <>
       <DetailsComponent />

@@ -4,10 +4,15 @@ import Searchbar from "../../components/Searchbar/Searchbar";
 import axios from "axios";
 import { toast } from "sonner";
 
+/**
+ * Homepage component for displaying search bar and cocktail results.
+ * @returns JSX element
+ */
+
 const Homepage = () => {
   const { cocktails, setCocktails } = useCocktailContext();
 
-  const searchCocktails = async (ingredient: any) => {
+  const searchCocktails = async (ingredient: string) => {
     try {
       const response = await axios.get(
         `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`
