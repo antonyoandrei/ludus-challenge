@@ -23,6 +23,11 @@ const Homepage = () => {
         return;
       }
 
+      if (!ingredient) {
+        toast.error("You have to write something!");
+        return;
+      }
+
       const nonAlcoholicCocktails = drinks.filter(
         (cocktail: { strAlcoholic: string }) =>
           cocktail.strAlcoholic === "Non alcoholic"
